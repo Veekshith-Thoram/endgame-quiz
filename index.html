@@ -1,0 +1,52 @@
+
+var readlineSync = require('readline-sync');
+// var user = readlineSync.question("Hey what are you?");
+// console.log(user);
+var score = 0;
+var user = readlineSync.question("What is your name?")
+console.log("Hey !!"+user);
+console.log("Say Y/N");
+var userAnswer = readlineSync.question("Do you know Veekshith enough??");
+
+if(userAnswer === "Y"){
+  var questions = [
+  {
+    question:"Who is my favourite actor?",
+  answer:"Venkatesh"
+  },
+  {
+    question:"Which IPL team do i support?",
+  answer:"MI"
+  },
+  {
+    question:"Where do i Live?",
+  answer:"Vizag"
+  },
+  {
+    question:"My God?",
+  answer:"Pawan Kalyan"
+  }];
+
+  for(var i = 0; i<questions.length;i++){
+    var currentQuestion = questions[i];
+    play(currentQuestion.question,currentQuestion.answer);
+  }
+console.log("Your final score is:",score);
+  
+  function play(question,answer){
+    var userPlay = readlineSync.question(question);
+    if(userPlay.toUpperCase() === answer.toUpperCase()){
+      console.log("Hey you are right!!");
+      score = score+1;
+    }
+    else{
+      console.log("You are wrong!!");
+      score = score;
+    }
+    console.log("Current score:",score);
+    console.log("--------");
+  }
+} else{
+  console.log("Then you cant play the game, tq "+user+". Have a great day !!");
+}
+
